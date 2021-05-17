@@ -38,8 +38,8 @@ catIsAtParty.subscribe(() => {
   cat.remove();
   party.appendChild(cat);
 });
-
+const setOpacity = (value) => (cat.style.opacity = value);
 merge(
   dragStartEvent.pipe(filterCat, mapTo(0)),
   dragEndEvent.pipe(filterCat, mapTo(1))
-).subscribe((value) => (cat.style.opacity = value));
+).subscribe(setOpacity);
